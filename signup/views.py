@@ -38,8 +38,10 @@ def home(request):
     context['volunteers'] = CustomUser.objects.count()
     context['total'] = total
     context['count'] = count
-    context['percent_complete'] = int(float(count)/total)
-
+    if total:
+        context['percent_complete'] = int(float(count)/total)
+    else:
+        context['percent_complete'] = 0
     if request.method == "POST":
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
