@@ -71,7 +71,7 @@ def add_constituency(request):
             query = request.POST.get('q', '')
             context['q'] = query
             if query:
-                c = Constituency.objects.all().filter(name__contains=query)
+                c = Constituency.objects.all().filter(name__icontains=query)
                 c = c.exclude(pk__in=my_constituencies)
                 context['constituencies'] = c
         elif request.POST.has_key('add') and request.POST.has_key('add_c'):
