@@ -1,0 +1,11 @@
+Hi {{ user.display_name }},
+
+Thanks for signing up to help out in your constituency.
+
+We won't be able to help you get involved until you confirm your email address, which you can do at the following address:
+
+http://{{ site }}{% url activate key=activation_key %}
+
+Thanks,
+
+The Constituency Volunteer Network

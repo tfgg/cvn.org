@@ -1,0 +1,111 @@
+body { 
+  background-color: lightgray;
+  color: #5c5c5c;
+  font-size: 110%;
+}
+
+h1, h2, h3, h4, h5 {
+ color: #0a5196;
+}
+
+
+#logo h1 {
+ margin: 0;
+ font-size: 2em;
+}
+
+#logo h1 a {
+ color: yellow;
+}
+
+#logo h1 a {
+ text-decoration: none
+}
+
+#header {
+ background-color: #666;
+ border: solid #666 20px;
+}
+
+
+#main {
+ border: solid white 20px;
+ background-color: white;
+}
+
+#visualization {
+ width: 340px;
+ height: 340px;
+}
+
+#navigation {
+ text-align: right;
+ vertical-align: bottom;
+}
+#navigation ul {
+ margin: 0;
+}
+
+#navigation ul#actions {
+ font-size:90%;
+}
+
+#navigation ul li {
+ list-style: none;
+ display: inline;
+ background: yellow;
+}
+#navigation ul li a {
+ text-decoration: none;
+ padding: 2px;
+}
+#navigation ul li a:hover {
+ background: pink;
+}
+
+#search-constituency input {
+ font-size: 1.4em;
+ border: solid lightgray 0.2em;
+ margin: 0;
+}
+
+#constituency-list {
+ margin-top: 1em;
+}
+
+#constituency-list li, #my-constituency-list li {
+ list-style: none;
+}
+
+#constituency-list input {
+ margin: 0;
+}
+
+#signup input {
+    margin: 0;
+}
+
+.errorlist {
+ margin: 0;
+ color: red;
+ list-style: none;
+ font-size: 80%;
+ font-style: italic;
+}
+tr.errors td input {
+ border: solid red 2px;
+}
+
+span.required {
+ color: red;
+ float: right;
+}
+
+input {
+ font-size: 110%;
+}
+p.helptext {
+ font-size: 80%;
+ font-style: italic;
+ margin-top:3px;
+}

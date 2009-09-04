@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+
+<div class="span-5">
+{% if user.is_anonymous %}
+ <h2>Join us</h2>
+ <p>This project is about helping get things done in your constituency.</p>
+ <p>Over time, we'll start asking you to do things, by email. Right now, we're just trying
+ to get willing volunteers in as many constituencies as possible.</p>
+
+ {% if form %}
+  <form action="" method="post" id="signup">
+  <table>
+  {{ form.as_table }}
+  <tr>
+   <td></td>
+   <td><input type="submit" value="sign up" /></td>
+  </tr>
+  </table>
+  </form>
+ {% endif %}
+{% else %}
+<h2>Welcome, {{user.display_name}}</h2>
+<p>In time, we'll be adding features to the website to help you volunteer in your constituency. </p>
+<p>For now, though, there's not much more to do here, unless you want to <a href="{% url add_constituency %}">volunteer to help in other constituencies</a>.
+{% endif %}
+
+</div>
+
+<div class="span-3 last">
+<div id="visualization"></div>
+<p>So far, we've recruited {{ volunteers }} volunteers in {{ count }} constituencies (out of a total {{ total }}).</p>
+
+{% block js %}
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {packages: ['gauge']});
+</script>
+<script type="text/javascript">
+function drawVisualization() {
+  // Create and populate the data table.
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Label');
+  data.addColumn('number', 'Value');
+  data.addRows(1);
+  data.setValue(0, 0, '% complete');
+  data.setValue(0, 1, {{percent_complete}});
+
+  // Create and draw the visualization.
+  var chart = new google.visualization.Gauge(document.getElementById('visualization'));
+  var opts = {redFrom: 90, 
+              redTo: 100, 
+              yellowFrom: 75,
+              yellowTo: 90, 
+              greenFrom: 35, 
+              greenTo: 75};
+
+   chart.draw(data, opts);
+}
+google.setOnLoadCallback(drawVisualization);
+</script>
+{% endblock %}
+
+
+{% endblock %}
+
