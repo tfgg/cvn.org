@@ -1,6 +1,6 @@
 body { 
   background-color: lightgray;
-  color: #5c5c5c;
+  color: #333;
   font-size: 110%;
 }
 
@@ -108,4 +108,9 @@ p.helptext {
  font-size: 80%;
  font-style: italic;
  margin-top:3px;
+}
+
+.quiet {
+ font-size: 90%;
+ font-style: italic;
 }
