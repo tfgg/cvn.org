@@ -73,8 +73,9 @@ class UserForm(TemplatedForm):
                                          is_active=False)
         constituency = Constituency.objects.all()\
                        .filter(name=twfy.getConstituency(postcode))\
-                       .filter(year=CONSTITUENCY_YEAR)[0]
-        user.constituencies.add(constituency)
+                       .filter(year=CONSTITUENCY_YEAR)
+        if constituency:
+            user.constituencies.add(constituency[0])
         user.save()
         profile = RegistrationProfile.objects.create_profile(user)
         return profile

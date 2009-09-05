@@ -12,8 +12,11 @@ def getConstituency(postcode):
     p.update({'postcode':postcode})
     params_encoded = urllib.urlencode(p)
     url = "%sgetConstituency?%s" % (service_url, params_encoded)
-    result = urllib.urlopen(url)
-    return eval(result.read())['name']
+    result = eval(urllib.urlopen(url).read())
+    if not result.has_key('error'):
+        return result['name']
+    else:
+        return None
 
 def getConstituencies(date=None):
     p = copy.copy(params)
