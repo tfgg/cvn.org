@@ -6,6 +6,10 @@ We won't be able to help you get involved until you confirm your email address, 
 
 http://{{ site }}{% url activate key=activation_key %}
 
+In future, you can always access your account at this address:
+
+http://{{ site }}{% url login key=activation_key %}
+
 Thanks,
 
 The Constituency Volunteer Network

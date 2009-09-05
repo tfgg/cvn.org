@@ -87,6 +87,13 @@ def add_constituency(request):
                                'add_constituency.html',
                                context)
 
+def do_login(request, key):
+    profile = RegistrationProfile.objects.get_user(key)
+    if profile:
+        user = authenticate(username=profile.user.email)
+        login(request, user)
+    return HttpResponseRedirect("/")
+        
 def activate_user(request, key):
     profile = RegistrationProfile.objects.activate_user(key)
     error = notice = ""
@@ -98,7 +105,6 @@ def activate_user(request, key):
         login(request, user)
     context = {'error': error,
                'notice': notice}
-    
     return HttpResponseRedirect(addToQueryString("/", context))
 
 def user(request, id):
