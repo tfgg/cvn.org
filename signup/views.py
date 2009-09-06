@@ -39,7 +39,7 @@ def home(request):
     context['total'] = total
     context['count'] = count
     if total:
-        context['percent_complete'] = int(float(count)/total)
+        context['percent_complete'] = int(float(count)/total*100)
     else:
         context['percent_complete'] = 0
     if request.method == "POST":
