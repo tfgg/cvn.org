@@ -67,3 +67,23 @@ class ModelsTestCase(TestCase):
         self.users[0].constituencies.add(self.constituencies[2])
         self.assertEqual(self.users[0].current_constituencies.count(), 1)
         
+
+class TestNeigbours(TestCase):
+    # constituency names must match those returned from twfy
+    constituencies = [
+        {"name": "Stirling", "year": this_year},
+        {"name": "West Dunbartonshire", "year": this_year},
+        {"name": "Falkirk", "year": this_year},
+        {"name": "Hendon", "year": this_year}
+        ]
+
+    def setUp(self):
+        for c in self.constituencies:
+            Constituency.objects.create(**c)
+
+    def test_neigbours(self):
+        # Stirling's neighbouring constituencies are Falkirk and West
+        # Dunbartonshire. Hendon is a long way away
+        centre = Constituency.objects.get(name="Stirling")
+        names = (c.name for c in Constituency.neighbours(centre, limit=2))
+        self.assertEqual(list(names), ["West Dunbartonshire", "Falkirk"])

@@ -15,6 +15,7 @@ from django.contrib.sites.models import Site
 from django.core.mail import send_mail
 
 # app
+import geo
 from slugify import smart_slugify
 from settings import CONSTITUENCY_YEAR
 
@@ -40,6 +41,12 @@ class Constituency(Model):
     name = models.CharField(max_length=80)
     slug = models.SlugField(max_length=80)
     year = models.DateField()
+
+    @classmethod
+    def neighbours(cls, constituency, limit=None):
+        "consituencies near this one"
+        neighbors = geo.neighbors(constituency.name)
+        return cls.objects.filter(name__in=neighbors)
     
     def __unicode__(self):
         return "%s (%s)" % (self.name, self.year)

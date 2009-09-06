@@ -1,5 +1,6 @@
 import urllib
 import copy
+import json
 
 api_key = "FH8qJGE5t7opGVTuXTDumuUK"
 service_url = "http://www.theyworkforyou.com/api/"
@@ -29,3 +30,20 @@ def getConstituencies(date=None):
     charset = ctype[ctype.find("charset=")+len("charset="):]
     
     return [x['name'].decode(charset) for x in eval(result.read())]
+
+def getGeometry(name=None):
+    """
+    Centre and bounding box of constituencies
+
+    Don't provide any argument to get all constituencies
+    """
+    p = copy.copy(params)
+    if name:
+        p.update({'name':name})
+    params_encoded = urllib.urlencode(p)
+    url = "%sgetGeometry?%s" % (service_url, params_encoded)
+    result = urllib.urlopen(url)
+    ctype = result.headers['content-type']
+    charset = ctype[ctype.find("charset=")+len("charset="):]
+    return json.load(result, encoding=charset)["data"]
+    

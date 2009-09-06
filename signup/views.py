@@ -63,9 +63,15 @@ def delete_constituency(request, slug):
     request.user.save()
     return HttpResponseRedirect(reverse('add_constituency'))
 
+
 def add_constituency(request):
     my_constituencies = request.user.current_constituencies.all()
-    context = {'my_constituencies': my_constituencies}
+    neighbours = Constituency.neighbours(my_constituencies[0])
+    neighbours = neighbours.exclude(pk__in=my_constituencies)
+    
+    context = {'my_constituencies': my_constituencies,
+               'constituencies': list(neighbours)}
+
     if request.method == "POST":
         if request.POST.has_key('search'):
             query = request.POST.get('q', '')
@@ -73,7 +79,7 @@ def add_constituency(request):
             if query:
                 c = Constituency.objects.all().filter(name__icontains=query)
                 c = c.exclude(pk__in=my_constituencies)
-                context['constituencies'] = c
+                context['constituencies'].extend(list(c))
         elif request.POST.has_key('add') and request.POST.has_key('add_c'):
             add_c = request.POST.getlist('add_c')
             if type(add_c) != types.ListType:

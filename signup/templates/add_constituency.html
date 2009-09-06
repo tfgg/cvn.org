@@ -21,24 +21,17 @@
 <form method="post" action="">
   <div id="search-constituency">
     <h2>Help in another constituency</h2>
-    <p><label for="q">Type some letters of the constituency you'd like to volunteer in:</label></p>
-    <input type="text" value="{{q}}" name="q" id="q" size="15" />
-    <hr class="space" />
+    <ul id="constituency-list">
+    {% for c in constituencies %}
+       <li> <input name="add_c" type="checkbox" value="{{ c.slug }}" /> {{ c.name }}</li>
+    {% endfor %}
+    </ul>
   </div> 
-  
-  {% if not constituencies %}
-  <input type="submit" name="search" value="search" />
-  <hr class="space" />
-  {% else %}
   <input type="submit" name="add" value="add ticked constituencies" />
-  <input type="submit" name="search" value="search again" />
-  <ul id="constituency-list">
-   {% for c in constituencies %}
-   <li> <input name="add_c" type="checkbox" value="{{ c.slug }}" /> {{ c.name }}</li>
-   {% endfor %}
-  </ul>
-  {% endif %}
-
+  <div>
+    <input type="text" value="{{q}}" name="q" id="q" size="15" />
+    <input type="submit" name="search" value="search for a constituency" />
+  </div>
 </form>
 </div>
 
