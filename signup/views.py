@@ -19,9 +19,7 @@ def render_with_context(request,
                         template,
                         context,
                         **kw):
-    pages = FlatPage.objects.all()
     kw['context_instance'] = RequestContext(request)
-    context['pages'] = pages
     return render_to_response(template,
                               context,
                               **kw)
