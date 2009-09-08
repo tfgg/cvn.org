@@ -15,6 +15,9 @@ from forms import UserForm
 from utils import addToQueryString
 import settings
 
+import twfy
+
+
 def render_with_context(request,
                         template,
                         context,
@@ -70,15 +73,23 @@ def add_constituency(request):
     context = {'my_constituencies': my_constituencies,
                'constituencies': list(neighbours)}
 
+    # searching for a constituency by postcode
+    if request.method == "GET":
+        if request.GET.has_key("q"):
+            postcode = request.GET["q"]
+            try:
+                const = twfy.getConstituency(postcode)
+            except Exception:
+                context['search_fail'] = "Alas, we could not find %s" % postcode
+            else:
+                if const == None:
+                    context['search_fail'] = "Alas, %s seems to be invalid" % postcode
+                else:
+                    context['constituencies'] = Constituency.objects.filter(name=const)
+
+    # adding another constituency
     if request.method == "POST":
-        if request.POST.has_key('search'):
-            query = request.POST.get('q', '')
-            context['q'] = query
-            if query:
-                c = Constituency.objects.all().filter(name__icontains=query)
-                c = c.exclude(pk__in=my_constituencies)
-                context['constituencies'].extend(list(c))
-        elif request.POST.has_key('add') and request.POST.has_key('add_c'):
+        if request.POST.has_key('add') and request.POST.has_key('add_c'):
             add_c = request.POST.getlist('add_c')
             if type(add_c) != types.ListType:
                 add_c = [add_c]
@@ -86,6 +97,8 @@ def add_constituency(request):
             constituencies = constituencies.exclude(pk__in=my_constituencies)
             request.user.constituencies.add(*constituencies.all())
             request.user.save()
+            return HttpResponseRedirect("/add_constituency/")
+
                                       
     return render_with_context(request,
                                'add_constituency.html',

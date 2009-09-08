@@ -113,3 +113,47 @@ class ViewsTestCase(TestCase):
         response = self.client.get(self.constituencies[2].get_absolute_url())
         self.assertTrue(u"2 vol" in page_content(response.content))
         
+
+class TestAddConstituencies(TestCase):
+    def setUp(self):
+        crewe = Constituency.objects.create(
+            name="Crewe & Nantwich",
+            year = this_year)
+        user = CustomUser.objects.create(
+            username = "Frank",
+            password = "",
+            postcode = "CW1 6AR",
+            can_cc = True)
+        user.constituencies = [crewe]
+        self.assert_(self.client.login(username="Frank", password=""))
+
+    def test_postcode_search(self):
+        # user can enter a postcode into the search box to find a
+        # constituency.
+        # Example: a user in Crewe may search for a postcode in Hendon
+        newcastle = Constituency.objects.create(
+            name = "Hendon",
+            year = this_year)
+        self.assert_(self.client.login(username="Frank", password=""))
+
+        # NW4 is in Hendon
+        response = self.client.get("/add_constituency/#search", {"q":"NW4 3AS"})
+        self.assertContains(response, "Hendon")
+
+    def test_postcode_garbage(self):
+        # user could put garbage in the search box. this should not explode
+        response = self.client.get("/add_constituency/#search", {"q": u"\u2603"})
+        # user is still registered in Crewe
+        self.assertContains(response, "Crewe")
+        # there is an error message
+        self.assertContains(response, "could not find")
+        
+    def test_invalid_postcode(self):
+        # there are postcodes with valid formats that are not valid,
+        # eg there are no postcodes that begin with D
+        response = self.client.get("/add_constituency/#search", {"q": u"D7 4XP"})
+        # user is still registered in Crewe
+        self.assertContains(response, "Crewe")
+        # there is an error message
+        self.assertContains(response, "seems to be invalid")
+        

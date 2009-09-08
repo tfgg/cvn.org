@@ -28,9 +28,13 @@
     </ul>
   </div> 
   <input type="submit" name="add" value="add ticked constituencies" />
+</form>
+<form method="get" action="#search">
   <div>
+    {% if search_fail %}<div>{{search_fail}}</div>{% endif %}
+    Search for a constituency by postcode
     <input type="text" value="{{q}}" name="q" id="q" size="15" />
-    <input type="submit" name="search" value="search for a constituency" />
+    <input type="submit" name="search" value="search" />
   </div>
 </form>
 </div>
