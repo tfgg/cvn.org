@@ -74,3 +74,47 @@ class TestNeighbors(TestCase):
         data.update(self.tricky_data)
         self.assertEqual(geo.neighbors("Altrincham & Sale West", limit=3, _data=data),
                          ["Stretford & Urmston", "Tatton", "Hertsmere"])
+
+
+
+class TestGeoConstituency(TestCase):
+    """
+    geo.constituency tries to give you the constituency that a "place"
+    is in. Place may be a postcode or the name of a town.
+    """
+    def assertIn(self, val, container, msg=None):
+        if not msg:
+            msg = "%r not in %r" % (val, container)
+        self.assert_(val in container, msg)
+
+    def test_geocode(self):
+        name, (lat, lng) = geo.geocode("Newham")
+        self.assertIn(u"Newham", name)
+
+    def test_town1(self):
+        # you can search for a town
+        self.assertEquals("Crewe & Nantwich", geo.constituency("Crewe"))
+
+    def test_town2(self):
+        self.assertEquals("Falkirk", geo.constituency("Alloa"))
+
+    def test_town3(self):
+        self.assertEquals("Shipley", geo.constituency("Ilkley"))
+
+    def _test_town4(self): # SKIPPED
+        # XXX this is broken because the twfy api have no data about Belfast
+        self.assertEquals("Belfast", geo.constituency("Forkhill"))
+
+    def test_postcode1(self):
+        # Land's End
+        self.assertEquals("St Ives", geo.constituency("TR19 7AA"))
+
+    def test_postcode_nonexistant(self):
+        # there are no postcodes that start with D
+        self.assertEquals(None, geo.constituency("D7 7QX"))
+
+    def test_postcode_forces(self):
+        # Postcodes run by the British forces post office . We can't
+        # do anything with these (they don't point towards a
+        # constituency)
+        self.assertEquals(None, geo.constituency("BFPO 801"))

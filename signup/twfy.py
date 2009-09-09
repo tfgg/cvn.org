@@ -19,10 +19,19 @@ def getConstituency(postcode):
     else:
         return None
 
-def getConstituencies(date=None):
+def getConstituencies(**kw):
+    geoargs = ("latitude", "longitude", "distance")
+    validargs = ("date", ) + geoargs
+
+    invalid_args = list(k for k in kw.keys() if k not in validargs)
+    if len(invalid_args) > 0:
+        raise ValueError("Invalid args %r" % ",".join(invalid_args))
+
+    if any(kw.has_key(k) for k in geoargs):
+        if not all(kw.has_key(k) for k in geoargs):
+            raise ValueError("Need all geoargs")
     p = copy.copy(params)
-    if date:
-        p.update({'date':date})
+    p.update((k, v) for k,v in kw.items() if v != None)
     params_encoded = urllib.urlencode(p)
     url = "%sgetConstituencies?%s" % (service_url, params_encoded)
     result = urllib.urlopen(url)

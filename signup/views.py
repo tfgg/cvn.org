@@ -15,7 +15,7 @@ from forms import UserForm
 from utils import addToQueryString
 import settings
 
-import twfy
+import geo
 
 
 def render_with_context(request,
@@ -73,19 +73,15 @@ def add_constituency(request):
     context = {'my_constituencies': my_constituencies,
                'constituencies': list(neighbours)}
 
-    # searching for a constituency by postcode
+    # searching for a constituency by postcode or placename
     if request.method == "GET":
         if request.GET.has_key("q"):
-            postcode = request.GET["q"]
-            try:
-                const = twfy.getConstituency(postcode)
-            except Exception:
-                context['search_fail'] = "Alas, we could not find %s" % postcode
+            place = request.GET["q"]
+            const = geo.constituency(place)
+            if const == None:
+                context['search_fail'] = "Alas, we can't find '%s'" % place
             else:
-                if const == None:
-                    context['search_fail'] = "Alas, %s seems to be invalid" % postcode
-                else:
-                    context['constituencies'] = Constituency.objects.filter(name=const)
+                context['constituencies'] = Constituency.objects.filter(name=const)
 
     # adding another constituency
     if request.method == "POST":
@@ -99,7 +95,6 @@ def add_constituency(request):
             request.user.save()
             return HttpResponseRedirect("/add_constituency/")
 
-                                      
     return render_with_context(request,
                                'add_constituency.html',
                                context)

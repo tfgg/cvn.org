@@ -135,7 +135,6 @@ class TestAddConstituencies(TestCase):
             name = "Hendon",
             year = this_year)
         self.assert_(self.client.login(username="Frank", password=""))
-
         # NW4 is in Hendon
         response = self.client.get("/add_constituency/#search", {"q":"NW4 3AS"})
         self.assertContains(response, "Hendon")
@@ -146,7 +145,7 @@ class TestAddConstituencies(TestCase):
         # user is still registered in Crewe
         self.assertContains(response, "Crewe")
         # there is an error message
-        self.assertContains(response, "could not find")
+        self.assertContains(response, "can&#39;t find")
         
     def test_invalid_postcode(self):
         # there are postcodes with valid formats that are not valid,
@@ -155,5 +154,14 @@ class TestAddConstituencies(TestCase):
         # user is still registered in Crewe
         self.assertContains(response, "Crewe")
         # there is an error message
-        self.assertContains(response, "seems to be invalid")
+        self.assertContains(response, "can&#39;t find")
         
+    def test_placename(self):
+        # user can also search for a placename
+        east_devon = Constituency.objects.create(
+            name = "East Devon",
+            year = this_year)
+        response = self.client.get("/add_constituency/#search", {"q": u"Sidmouth"})
+        # user is still registered in Crewe
+        self.assertContains(response, "Crewe")
+        self.assertContains(response, "Devon")
