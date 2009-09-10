@@ -45,6 +45,17 @@ class TestInvite(TestCase):
         invite_form = {'honeypot': '', 'email': 'b@mailinator.com', 'message': 'flump'}
         response = self.client.post("/invite/", invite_form, follow=True)
         self.assertTrue(strings.INVITE_ERROR_INVITED in response.content)
+        
+    def test_send_invite_multi(self):
+        """ Send a multi-address email """
+        invite_form = {'honeypot': '', 'email': 'Barry <b@mailinator.com>, Carl <c@mailinator.com>', 'message': 'flump'}
+        response = self.client.post("/invite/", invite_form, follow=True)
+        self.assertTrue(strings.INVITE_NOTICE_SUCCESS in response.content)
+        self.assertEquals(len(mail.outbox),2)
+        self.assertEquals(mail.outbox[0].subject, strings.INVITE_SUBJECT % "f@mailinator.com")
+        self.assertEquals(Invitation.objects.all().count(), 2)
+        self.assertEquals(Invitation.objects.filter(email="b@mailinator.com").count(), 1)
+        self.assertEquals(Invitation.objects.filter(email="c@mailinator.com").count(), 1)
     
     def test_honeypot(self):
         """ Test the bot honeypot on the invitation form """

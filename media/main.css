@@ -117,22 +117,3 @@ p.helptext {
  font-size: 90%;
  font-style: italic;
 }
-
-/* Invitation form */
-#invite input {
-    margin: 0;
-}
-
-#invite .field_honeypot {
-    display: none;
-}
-
-#invite th, #invite td
-{
-    vertical-align:top;
-}
-
-#invite #id_message
-{
-    height:6em;
-}

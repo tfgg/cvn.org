@@ -1,0 +1,23 @@
+/* Invitation form */
+#invite input {
+    margin: 0;
+}
+
+#invite .field_honeypot {
+    display: none;
+}
+
+#invite th, #invite td
+{
+    vertical-align:top;
+}
+
+#invite #id_email
+{
+    height:3em;
+}
+
+#invite #id_message
+{
+    height:6em;
+}

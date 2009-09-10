@@ -1,3 +1,5 @@
+import rfc822 # Email address processing
+
 from django import forms
 
 from signup.models import CustomUser
@@ -8,7 +10,8 @@ import strings
 
 class InviteForm(TemplatedForm):
     honeypot = forms.CharField(required=False)
-    email = forms.EmailField(label="Their email address",
+    email = forms.CharField(label="Their email address(es)" ,
+                             widget=forms.Textarea,
                              required=True)
     message = forms.CharField(label="A short message",
                               max_length=200,
@@ -21,17 +24,20 @@ class InviteForm(TemplatedForm):
         Validate that the email is not already used by a registered 
         user and has not already been sent an invite.
         """
-        user = CustomUser.objects.all()\
-               .filter(email=self.cleaned_data['email'].lower())
-        if user:
-            raise forms.ValidationError(strings.INVITE_ERROR_REGISTERED)
+        addresses = rfc822.AddressList(self.cleaned_data['email'])
         
-        invite = Invitation.objects.all()\
-                .filter(email=self.cleaned_data['email'].lower())
-        if invite:
-            raise forms.ValidationError(strings.INVITE_ERROR_INVITED)
-        
-        return self.cleaned_data['email'].lower()
+        for (name, email) in addresses.addresslist:
+            user = CustomUser.objects.all()\
+                   .filter(email=email.lower())
+            if user:
+                raise forms.ValidationError(strings.INVITE_ERROR_REGISTERED % email)
+            
+            invite = Invitation.objects.all()\
+                    .filter(email=email.lower())
+            if invite:
+                raise forms.ValidationError(strings.INVITE_ERROR_INVITED % email)
+            
+        return addresses.addresslist
         
     def clean_honeypot(self): # Honeypot to catch bots. Will this work?
         if self.cleaned_data['honeypot'] != "":
@@ -40,7 +46,6 @@ class InviteForm(TemplatedForm):
             return self.cleaned_data['honeypot']
         
     def save(self, user):
-        email = self.cleaned_data['email']
-        message = self.cleaned_data['message']
-        
-        Invitation.objects.create_invitation(email=email, message=message, user=user)
+        for (name, email) in self.cleaned_data['email']:
+            message = self.cleaned_data['message']
+            Invitation.objects.create_invitation(email=email, message=message, user=user)
