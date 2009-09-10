@@ -18,7 +18,7 @@ class Command(BaseCommand):
         transaction.managed(True)
 
         year = CONSTITUENCY_YEAR.strftime("%Y")
-        constituencies = twfy.getConstituencies()
+        constituencies = twfy.getConstituencies(date=year)
 
         for c in constituencies:
             item = models.Constituency(name=c,
