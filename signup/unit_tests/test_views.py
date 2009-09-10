@@ -4,6 +4,8 @@ import cgi
 
 # django
 from django.conf import settings
+from django.contrib.flatpages.models import FlatPage
+from django.contrib.sites.models import Site
 
 # app
 from testbase import TestCase
@@ -155,7 +157,7 @@ class TestAddConstituencies(TestCase):
         self.assertContains(response, "Crewe")
         # there is an error message
         self.assertContains(response, "can&#39;t find")
-        
+
     def test_placename(self):
         # user can also search for a placename
         east_devon = Constituency.objects.create(
@@ -165,3 +167,28 @@ class TestAddConstituencies(TestCase):
         # user is still registered in Crewe
         self.assertContains(response, "Crewe")
         self.assertContains(response, "Devon")
+
+
+class TestFlatPages(TestCase):
+    FLAT_PAGES = [{'url':"/about/", 'title':"About", 'content':"This is a flat page"},
+                  {'url':"/faq/", 'title':"FAQ", 'content':"This is another flat page"},]
+    
+    def setUp(self):
+        site = Site.objects.get_current()
+    
+        for flat_page in self.FLAT_PAGES:
+            page = FlatPage.objects.create(**flat_page)
+            page.save()
+            page.sites.add(site)
+        
+    def test_flatpage(self):
+        """ Checks that flatpages work """
+        response = self.client.get("/about/")
+        self.assertContains(response, "About")
+        self.assertContains(response, "This is a flat page")
+        
+    def test_flatpage_navigation(self):
+        """ Test for issue 3 (navigation disappearing in flat page views) """
+        response = self.client.get("/about/")
+        self.assertContains(response, "FAQ")
+

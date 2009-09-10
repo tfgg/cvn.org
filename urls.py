@@ -18,6 +18,6 @@ urlpatterns = patterns('',
     (r'^media/(?P<path>.*)$', serve,
      {'document_root': MEDIA_ROOT,
       'show_indexes': True}),
+    ('^invite/', include('invite.urls')), 
     ('^', include('signup.urls')),
-     
 )

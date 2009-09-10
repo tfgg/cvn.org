@@ -1,0 +1,13 @@
+{% if invite_form %}
+<p><script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script><a href="http://www.facebook.com/share.php?u=http://{{ current_site.domain }}" onclick="return fbs_click()" target="_blank">Share on Facebook</a> or <a href='http://digg.com/submit?url=http://{{ current_site.domain}}&title=Constituency Volunteers Network UK&bodytext=&media=news&topic=politics'>Digg</a> or invite a friend (or two) by email</p>
+
+<form action="" method="post" id="invite">
+<table>
+{{ invite_form.as_table }}
+<tr>
+ <td></td>
+ <td><input type="submit" value="invite" /></td>
+</tr>
+</table>
+</form>
+{% endif %}

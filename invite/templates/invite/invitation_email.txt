@@ -1,0 +1,13 @@
+Hi,
+
+{{ user.display_name }} has sent an invitation for you to join the Constituency Volunteers Network
+
+They say:
+{{ message }}
+
+Join at http://{{ site }}
+
+Thanks,
+
+The Constituency Volunteer Network
+http://{{ site }}

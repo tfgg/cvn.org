@@ -8,6 +8,7 @@ from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Count
 from django.contrib.flatpages.models import FlatPage
+from django.contrib.auth.decorators import login_required
 
 from models import CustomUser, Constituency, RegistrationProfile
 from forms import UserForm
@@ -16,7 +17,6 @@ from utils import addToQueryString
 import settings
 
 import geo
-
 
 def render_with_context(request,
                         template,
@@ -57,14 +57,15 @@ def home(request):
     return render_with_context(request,
                                'home.html',
                                context)
-
+                               
+@login_required
 def delete_constituency(request, slug):
     c = Constituency.objects.get(slug=slug)
     request.user.constituencies.remove(c)
     request.user.save()
     return HttpResponseRedirect(reverse('add_constituency'))
 
-
+@login_required
 def add_constituency(request):
     my_constituencies = request.user.current_constituencies.all()
     neighbours = Constituency.neighbours(my_constituencies[0])
@@ -105,7 +106,7 @@ def do_login(request, key):
         user = authenticate(username=profile.user.email)
         login(request, user)
     return HttpResponseRedirect("/")
-        
+    
 def activate_user(request, key):
     profile = RegistrationProfile.objects.activate_user(key)
     error = notice = ""
@@ -142,7 +143,7 @@ def constituency(request, slug, year=None):
     return render_with_context(request,
                                'constituency.html',
                                context)
-    
+
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect("/")

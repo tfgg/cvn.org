@@ -82,6 +82,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.request",
     "context_processors.navigation",
+    "context_processors.current_site",
 )
 
 INSTALLED_APPS = (
@@ -92,11 +93,14 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.admin',
     'signup',
+    'invite',
 )
 
 AUTHENTICATION_BACKENDS = ('backends.NoAuthBackend',
                            'django.contrib.auth.backends.ModelBackend',
                            )
+
+LOGIN_URL = "/"                           
 
 import datetime
 CONSTITUENCY_YEAR = datetime.datetime(2009, 1, 1)
