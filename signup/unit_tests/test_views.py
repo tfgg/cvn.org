@@ -169,6 +169,39 @@ class TestAddConstituencies(TestCase):
         self.assertContains(response, "Devon")
 
 
+
+class TestLeaveAllConstituencies(TestCase):
+    def test_foo1(self):
+        # user will sign up for Glasgow North
+        Constituency.objects.create(
+            name = "Glasgow North",
+            year = this_year)
+
+        # user signs up
+        response = self.client.post("/",
+            {'email':'foo@mailinator.com',
+             'postcode':'G206BT',
+             'can_cc':True,
+             'first_name':'foo',
+             'last_name':'bar'})
+        self.assertRedirects(response, "/")
+
+        # they have a constituency
+        user = CustomUser.objects.get(email="foo@mailinator.com")
+        self.assertEquals(1, len(user.current_constituencies))
+        response = self.client.get("/add_constituency/")
+        self.assertContains(response, "Glasgow North")
+
+        # user leaves their primary constituency
+        response = self.client.get("/delete_constituency/glasgow-north/")
+        self.assertEquals(0, len(user.current_constituencies)) 
+        
+        # back to homepage (should not go boom)
+        self.client.get("/")
+
+        
+
+        
 class TestFlatPages(TestCase):
     FLAT_PAGES = [{'url':"/about/", 'title':"About", 'content':"This is a flat page"},
                   {'url':"/faq/", 'title':"FAQ", 'content':"This is another flat page"},]
