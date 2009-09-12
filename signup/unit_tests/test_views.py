@@ -171,7 +171,10 @@ class TestAddConstituencies(TestCase):
 
 
 class TestLeaveAllConstituencies(TestCase):
-    def test_foo1(self):
+    def runTest(self):
+        # User's can leave constituencies after they have joined them,
+        # potentually leaving them in no constituencies at all. 
+
         # user will sign up for Glasgow North
         Constituency.objects.create(
             name = "Glasgow North",
@@ -192,12 +195,12 @@ class TestLeaveAllConstituencies(TestCase):
         response = self.client.get("/add_constituency/")
         self.assertContains(response, "Glasgow North")
 
-        # user leaves their primary constituency
+        # leaves their constituency
         response = self.client.get("/delete_constituency/glasgow-north/")
         self.assertEquals(0, len(user.current_constituencies)) 
         
-        # back to homepage (should not go boom)
-        self.client.get("/")
+        # should not go boom
+        self.client.get("/add_constituency/")
 
         
 

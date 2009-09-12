@@ -68,8 +68,12 @@ def delete_constituency(request, slug):
 @login_required
 def add_constituency(request):
     my_constituencies = request.user.current_constituencies.all()
-    neighbours = Constituency.neighbours(my_constituencies[0])
-    neighbours = neighbours.exclude(pk__in=my_constituencies)
+
+    if len(my_constituencies) > 0:
+        neighbours = Constituency.neighbours(my_constituencies[0])
+        neighbours = neighbours.exclude(pk__in=my_constituencies)
+    else:
+        neighbours = []
     
     context = {'my_constituencies': my_constituencies,
                'constituencies': list(neighbours)}
