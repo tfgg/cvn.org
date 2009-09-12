@@ -4,67 +4,57 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xml:lang="{% firstof LANGUAGE_CODE 'en' %}"
     lang="{% firstof LANGUAGE_CODE 'en' %}">
-  <head>
-    <title>{% block title %}{% endblock %}</title>
-    {% block css %}
-      <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}favicon.ico" />
-      <link rel="stylesheet" href="{{ MEDIA_URL }}screen.css" type="text/css" media="screen, projection"/>
-      <link rel="stylesheet" href="{{ MEDIA_URL }}print.css" type="text/css" media="print"/>
-<!--[if IE]><link rel="stylesheet" href="{{ MEDIA_URL }}ie.css" type="text/css" media="screen, projection"/><![endif]-->
-      <link rel="stylesheet" type="text/css"  media="screen" href="{{ MEDIA_URL }}main.css" />
-    {% endblock %}
-    {% block js %}
-    {% endblock %}
-    {% block extra-head %}{% endblock %}
-  </head>
-
-  <body id="section-{% block section %}home{% endblock %}">
-    {% block header %}
-    <div id="header" class="container">
-    <div id="logo" class="span-4">
-     <h1><a href="/">Constituency Volunteer Network</a></h1>
-    </div>
-    <div id="navigation" class="span-4 last">
-     <ul id="pages">
-       {% for page in pages %}
-       <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-       {% endfor %}
-       <li><a href="http://www.mySociety.org/">mySociety</a></li>
-   {% block navigation %}
-   {% endblock %}
-      </ul>
-      <ul id="actions">
-       {% if not user.is_anonymous %}
-       <li><a href="{% url add_constituency %}">Your constituencies</a></li>
-       <li><a href="{% url logout %}">Logout</a></li>
-       {% endif %}
-     </ul>
-    </div>
-   </div>
-    </div>
-       
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        {% block css %}
+        <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}favicon.ico" />
+        <link rel="stylesheet" href="{{ MEDIA_URL }}screen.css" type="text/css" media="screen, projection"/>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}print.css" type="text/css" media="print"/>
+        <!--[if IE]><link rel="stylesheet" href="{{ MEDIA_URL }}ie.css" type="text/css" media="screen, projection"/><![endif]-->
+        <link rel="stylesheet" type="text/css"  media="screen" href="{{ MEDIA_URL }}main.css" />
         {% endblock %}
+      {% block js %}{% endblock %}
+      {% block extra-head %}{% endblock %}
+    </head>
 
+    <body id="section-{% block section %}home{% endblock %}">
+      {% block header %}
+        <div id="header" class="container">
+            <div id="logo" class="span-4">
+                <h1><a href="/">Constituency Volunteer Network</a></h1>
+            </div>
+            <div id="navigation" class="span-4 last">
+                <ul id="pages">
+                  {% for page in pages %}
+                    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                  {% endfor %}
+                    <li><a href="http://www.mySociety.org/">mySociety</a></li>
+                  {% block navigation %}{% endblock %}
+                </ul>
+                <ul id="actions">
+                  {% if not user.is_anonymous %}
+                    <li><a href="{% url add_constituency %}">Your constituencies</a></li>
+                    <li><a href="{% url logout %}">Logout</a></li>
+                  {% endif %}
+                </ul>
+            </div>
+        </div>       
+      {% endblock %}
 
-    <div id="main" class="container">
-{% if not user.is_anonymous %}
- {% if not user.is_active %}
-  <div class="prepend-2 span-4 append-2 last"><p class="notice">You've not confirmed your email address yet.  Please check your inbox (and your spam folder) for a confirmation email.</p></div>
- {% endif %}
-{% endif %}
-{% if request.GET.notice %}
- <div class="prepend-2 span-4"><p class="notice">{{ request.GET.notice }}</p></div>
-{% endif %}
-{% if request.GET.error %}
- <div class="prepend-2 span-4"><p class="error">{{ request.GET.error }}</p></div>
-{% endif %}
-<div class="clear"></div>
-   {% block content %}
+        <div id="main" class="container">
+          {% if not user.is_anonymous %}{% if not user.is_active %}
+            <div class="prepend-2 span-4 append-2 last"><p class="notice">You've not confirmed your email address yet.  Please check your inbox (and your spam folder) for a confirmation email.</p></div>
+          {% endif %}{% endif %}
+          {% if request.GET.notice %}
+            <div class="prepend-2 span-4"><p class="notice">{{ request.GET.notice }}</p></div>
+          {% endif %}
+          {% if request.GET.error %}
+            <div class="prepend-2 span-4"><p class="error">{{ request.GET.error }}</p></div>
+          {% endif %}
+            <div class="clear"></div>
+          {% block content %}
 
-   
-   {% endblock %}
-
-    </div>
-
-  </body>
+          {% endblock %}
+        </div>
+    </body>
 </html>
