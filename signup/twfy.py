@@ -1,11 +1,7 @@
 import urllib
 import copy
 
-try:
-    import json
-except ImportError:
-    import simplejson as json
-
+from utils import json
 
 api_key = "FH8qJGE5t7opGVTuXTDumuUK"
 service_url = "http://www.theyworkforyou.com/api/"
@@ -81,7 +77,7 @@ def getConstituencies(**kw):
 
     params = dict((k, v) for k,v in kw.items() if v != None)
     headers, result = fetch(svcurl("getConstituencies", params))
-    return [x['name'].decode(charset(headers)) for x in eval(result)]
+    return [x['name'].decode(charset(headers)) for x in json.loads(result)]
 
 
 def getGeometry(name=None):

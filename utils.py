@@ -2,6 +2,12 @@ from urlparse import urlparse
 from cgi import parse_qs
 import urllib
 
+try:
+    import json
+except ImportError:
+    import simplejson as json
+
+
 def addToQueryString(orig, extra_data):
     scheme, netloc, path, params, query, fragment = urlparse(orig)
     query_data = parse_qs(query)

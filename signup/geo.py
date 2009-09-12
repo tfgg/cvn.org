@@ -1,6 +1,8 @@
 import math
 import twfy
-import json, urllib
+import urllib
+
+from utils import json
 
 def haversine((lat1, lon1), (lat2, lon2)):
     """
