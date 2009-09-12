@@ -77,7 +77,7 @@ def getConstituencies(**kw):
 
     params = dict((k, v) for k,v in kw.items() if v != None)
     headers, result = fetch(svcurl("getConstituencies", params))
-    return [x['name'].decode(charset(headers)) for x in json.loads(result)]
+    return [x['name'] for x in json.loads(result, encoding=charset(headers))]
 
 
 def getGeometry(name=None):
