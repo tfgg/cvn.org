@@ -26,6 +26,9 @@ class Command(BaseCommand):
             item.slug = smart_slugify(item.name, 
                                       manager=models.Constituency.objects,
                                       lower_case=True)
-            print "Loading %s <%s>" % (item.name, item.slug)
+            
+            if not ("silent" in options) or options["silent"] == False:
+                print "Loading %s <%s>" % (item.name, item.slug)
+            
             item.save()            
         transaction.commit()

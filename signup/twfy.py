@@ -23,6 +23,9 @@ class Fetcher(object):
             cval = resp.headers, resp.read()
             cache.set(url, cval)
             return cval
+            
+    def prime(self, url, cval):
+        cache.set(url, cval)
 
 fetch = Fetcher()
 

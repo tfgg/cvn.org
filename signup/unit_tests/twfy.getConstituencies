@@ -1,0 +1,98 @@
+((ihttplib
+HTTPMessage
+p0
+(dp1
+S'fp'
+p2
+NsS'status'
+p3
+S''
+p4
+sS'startofbody'
+p5
+NsS'startofheaders'
+p6
+NsS'subtype'
+p7
+S'javascript'
+p8
+sS'type'
+p9
+S'text/javascript'
+p10
+sS'maintype'
+p11
+S'text'
+p12
+sS'headers'
+p13
+(lp14
+S'Date: Sat, 12 Sep 2009 22:35:08 GMT\r\n'
+p15
+aS'Server: Apache/2.2.3\r\n'
+p16
+aS'Content-Type: text/javascript; charset=iso-8859-1\r\n'
+p17
+aS'X-Cache: MISS from sponge.ukcod.org.uk\r\n'
+p18
+aS'X-Cache-Lookup: MISS from sponge.ukcod.org.uk:80\r\n'
+p19
+aS'Via: 1.0 sponge.ukcod.org.uk:80 (squid/2.6.STABLE5)\r\n'
+p20
+aS'Connection: close\r\n'
+p21
+asS'dict'
+p22
+(dp23
+S'via'
+p24
+S'1.0 sponge.ukcod.org.uk:80 (squid/2.6.STABLE5)'
+p25
+sS'x-cache'
+p26
+S'MISS from sponge.ukcod.org.uk'
+p27
+sS'x-cache-lookup'
+p28
+S'MISS from sponge.ukcod.org.uk:80'
+p29
+sS'server'
+p30
+S'Apache/2.2.3'
+p31
+sS'connection'
+p32
+S'close'
+p33
+sS'date'
+p34
+S'Sat, 12 Sep 2009 22:35:08 GMT'
+p35
+sS'content-type'
+p36
+S'text/javascript; charset=iso-8859-1'
+p37
+ssS'typeheader'
+p38
+g37
+sS'encodingheader'
+p39
+NsS'seekable'
+p40
+I0
+sS'unixfrom'
+p41
+g4
+sS'plisttext'
+p42
+S'; charset=iso-8859-1'
+p43
+sS'plist'
+p44
+(lp45
+S'charset=iso-8859-1'
+p46
+asbS'[{"name":"Aberavon"},{"name":"Aldershot"},{"name":"Aldridge-Brownhills"},{"name":"Altrincham & Sale West"},{"name":"Alyn & Deeside"},{"name":"Amber Valley"},{"name":"Arundel & South Downs"},{"name":"Ashfield"},{"name":"Ashford"},{"name":"Ashton-under-Lyne"},{"name":"Aylesbury"},{"name":"Banbury"},{"name":"Barking"},{"name":"Barnsley Central"},{"name":"Barnsley East & Mexborough"},{"name":"Barnsley West & Penistone"},{"name":"Barrow & Furness"},{"name":"Basildon"},{"name":"Basingstoke"},{"name":"Bassetlaw"},{"name":"Bath"},{"name":"Batley & Spen"},{"name":"Battersea"},{"name":"Beaconsfield"},{"name":"Beckenham"},{"name":"Bedford"},{"name":"Belfast East"},{"name":"Belfast North"},{"name":"Belfast South"},{"name":"Belfast West"},{"name":"Berwick-upon-Tweed"},{"name":"Bethnal Green & Bow"},{"name":"Beverley & Holderness"},{"name":"Bexhill & Battle"},{"name":"Bexleyheath & Crayford"},{"name":"Billericay"},{"name":"Birkenhead"},{"name":"Birmingham, Edgbaston"},{"name":"Birmingham, Erdington"},{"name":"Birmingham, Hall Green"},{"name":"Birmingham, Hodge Hill"},{"name":"Birmingham, Ladywood"},{"name":"Birmingham, Northfield"},{"name":"Birmingham, Perry Barr"},{"name":"Birmingham, Selly Oak"},{"name":"Birmingham, Sparkbrook & Small Heath"},{"name":"Birmingham, Yardley"},{"name":"Bishop Auckland"},{"name":"Blaby"},{"name":"Blackburn"},{"name":"Blackpool North & Fleetwood"},{"name":"Blackpool South"},{"name":"Blaenau Gwent"},{"name":"Blaydon"},{"name":"Blyth Valley"},{"name":"Bognor Regis & Littlehampton"},{"name":"Bolsover"},{"name":"Bolton North East"},{"name":"Bolton South East"},{"name":"Bolton West"},{"name":"Bootle"},{"name":"Boston & Skegness"},{"name":"Bosworth"},{"name":"Bournemouth East"},{"name":"Bournemouth West"},{"name":"Bracknell"},{"name":"Bradford North"},{"name":"Bradford South"},{"name":"Bradford West"},{"name":"Braintree"},{"name":"Brecon & Radnorshire"},{"name":"Brent East"},{"name":"Brent North"},{"name":"Brent South"},{"name":"Brentford & Isleworth"},{"name":"Brentwood & Ongar"},{"name":"Bridgend"},{"name":"Bridgwater"},{"name":"Brigg & Goole"},{"name":"Brighton, Kemptown"},{"name":"Brighton, Pavilion"},{"name":"Bristol East"},{"name":"Bristol North West"},{"name":"Bristol South"},{"name":"Bristol West"},{"name":"Bromley & Chislehurst"},{"name":"Bromsgrove"},{"name":"Broxbourne"},{"name":"Broxtowe"},{"name":"Buckingham"},{"name":"Burnley"},{"name":"Burton"},{"name":"Bury North"},{"name":"Bury South"},{"name":"Bury St Edmunds"},{"name":"Caernarfon"},{"name":"Caerphilly"},{"name":"Calder Valley"},{"name":"Camberwell & Peckham"},{"name":"Cambridge"},{"name":"Cannock Chase"},{"name":"Canterbury"},{"name":"Cardiff Central"},{"name":"Cardiff North"},{"name":"Cardiff South & Penarth"},{"name":"Cardiff West"},{"name":"Carlisle"},{"name":"Carmarthen East & Dinefwr"},{"name":"Carmarthen West & South Pembrokeshire"},{"name":"Carshalton & Wallington"},{"name":"Castle Point"},{"name":"Central Suffolk & North Ipswich"},{"name":"Ceredigion"},{"name":"Charnwood"},{"name":"Chatham & Aylesford"},{"name":"Cheadle"},{"name":"Cheltenham"},{"name":"Chesham & Amersham"},{"name":"Chester, City of"},{"name":"Chesterfield"},{"name":"Chichester"},{"name":"Chingford & Woodford Green"},{"name":"Chipping Barnet"},{"name":"Chorley"},{"name":"Christchurch"},{"name":"Cities of London & Westminster"},{"name":"Cleethorpes"},{"name":"Clwyd South"},{"name":"Clwyd West"},{"name":"Colchester"},{"name":"Colne Valley"},{"name":"Congleton"},{"name":"Conwy"},{"name":"Copeland"},{"name":"Corby"},{"name":"Cotswold"},{"name":"Coventry North East"},{"name":"Coventry North West"},{"name":"Coventry South"},{"name":"Crawley"},{"name":"Crewe & Nantwich"},{"name":"Crosby"},{"name":"Croydon Central"},{"name":"Croydon North"},{"name":"Croydon South"},{"name":"Cynon Valley"},{"name":"Dagenham"},{"name":"Darlington"},{"name":"Dartford"},{"name":"Daventry"},{"name":"Delyn"},{"name":"Denton & Reddish"},{"name":"Derby North"},{"name":"Derby South"},{"name":"Devizes"},{"name":"Dewsbury"},{"name":"Don Valley"},{"name":"Doncaster Central"},{"name":"Doncaster North"},{"name":"Dover"},{"name":"Dudley North"},{"name":"Dudley South"},{"name":"Dulwich & West Norwood"},{"name":"Durham, City of"},{"name":"Ealing North"},{"name":"Ealing, Acton & Shepherd\'s Bush"},{"name":"Ealing, Southall"},{"name":"Easington"},{"name":"East Antrim"},{"name":"East Devon"},{"name":"East Ham"},{"name":"East Hampshire"},{"name":"East Londonderry"},{"name":"East Surrey"},{"name":"East Worthing & Shoreham"},{"name":"East Yorkshire"},{"name":"Eastbourne"},{"name":"Eastleigh"},{"name":"Renfrewshire East"},{"name":"Eccles"},{"name":"Eddisbury"},{"name":"Edmonton"},{"name":"Ellesmere Port & Neston"},{"name":"Elmet"},{"name":"Eltham"},{"name":"Enfield North"},{"name":"Enfield, Southgate"},{"name":"Epping Forest"},{"name":"Epsom & Ewell"},{"name":"Erewash"},{"name":"Erith & Thamesmead"},{"name":"Esher & Walton"},{"name":"Exeter"},{"name":"Falmouth & Camborne"},{"name":"Fareham"},{"name":"Faversham & Mid Kent"},{"name":"Feltham & Heston"},{"name":"Fermanagh & South Tyrone"},{"name":"Finchley & Golders Green"},{"name":"Folkestone & Hythe"},{"name":"Forest of Dean"},{"name":"Foyle"},{"name":"Fylde"},{"name":"Gainsborough"},{"name":"Gateshead East & Washington West"},{"name":"Gedling"},{"name":"Gillingham"},{"name":"Gloucester"},{"name":"Gosport"},{"name":"Gower"},{"name":"Grantham & Stamford"},{"name":"Gravesham"},{"name":"Great Grimsby"},{"name":"Great Yarmouth"},{"name":"Greenwich & Woolwich"},{"name":"Guildford"},{"name":"Hackney North & Stoke Newington"},{"name":"Hackney South & Shoreditch"},{"name":"Halesowen & Rowley Regis"},{"name":"Halifax"},{"name":"Haltemprice & Howden"},{"name":"Halton"},{"name":"Hammersmith & Fulham"},{"name":"Hampstead & Highgate"},{"name":"Harborough"},{"name":"Harlow"},{"name":"Harrogate & Knaresborough"},{"name":"Harrow East"},{"name":"Harrow West"},{"name":"Hartlepool"},{"name":"Harwich"},{"name":"Hastings & Rye"},{"name":"Havant"},{"name":"Hayes & Harlington"},{"name":"Hazel Grove"},{"name":"Hemel Hempstead"},{"name":"Hemsworth"},{"name":"Hendon"},{"name":"Henley"},{"name":"Hereford"},{"name":"Hertford & Stortford"},{"name":"Hertsmere"},{"name":"Hexham"},{"name":"Heywood & Middleton"},{"name":"High Peak"},{"name":"Hitchin & Harpenden"},{"name":"Holborn & St Pancras"},{"name":"Hornchurch"},{"name":"Hornsey & Wood Green"},{"name":"Horsham"},{"name":"Houghton & Washington East"},{"name":"Hove"},{"name":"Huddersfield"},{"name":"Huntingdon"},{"name":"Hyndburn"},{"name":"Ilford North"},{"name":"Ilford South"},{"name":"Ipswich"},{"name":"Isle of Wight"},{"name":"Islington North"},{"name":"Islington South & Finsbury"},{"name":"Islwyn"},{"name":"Jarrow"},{"name":"Keighley"},{"name":"Kensington & Chelsea"},{"name":"Kettering"},{"name":"Kingston & Surbiton"},{"name":"Kingston upon Hull East"},{"name":"Kingston upon Hull North"},{"name":"Kingston upon Hull West & Hessle"},{"name":"Kingswood"},{"name":"Knowsley North & Sefton East"},{"name":"Knowsley South"},{"name":"Lagan Valley"},{"name":"Lancaster & Wyre"},{"name":"Leeds Central"},{"name":"Leeds East"},{"name":"Leeds North East"},{"name":"Leeds North West"},{"name":"Leeds West"},{"name":"Leicester East"},{"name":"Leicester South"},{"name":"Leicester West"},{"name":"Leigh"},{"name":"Leominster"},{"name":"Lewes"},{"name":"Lewisham East"},{"name":"Lewisham West"},{"name":"Lewisham, Deptford"},{"name":"Leyton & Wanstead"},{"name":"Lichfield"},{"name":"Lincoln"},{"name":"Liverpool, Garston"},{"name":"Liverpool, Riverside"},{"name":"Liverpool, Walton"},{"name":"Liverpool, Wavertree"},{"name":"Liverpool, West Derby"},{"name":"Llanelli"},{"name":"Loughborough"},{"name":"Louth & Horncastle"},{"name":"Ludlow"},{"name":"Luton North"},{"name":"Luton South"},{"name":"Macclesfield"},{"name":"Maidenhead"},{"name":"Maidstone & The Weald"},{"name":"Makerfield"},{"name":"Maldon & East Chelmsford"},{"name":"Manchester Central"},{"name":"Manchester, Blackley"},{"name":"Manchester, Gorton"},{"name":"Manchester, Withington"},{"name":"Mansfield"},{"name":"Medway"},{"name":"Meirionnydd Nant Conwy"},{"name":"Meriden"},{"name":"Merthyr Tydfil & Rhymney"},{"name":"Mid Bedfordshire"},{"name":"Mid Dorset & North Poole"},{"name":"Mid Norfolk"},{"name":"Mid Sussex"},{"name":"Mid Ulster"},{"name":"Mid Worcestershire"},{"name":"Middlesbrough"},{"name":"Middlesbrough South & East Cleveland"},{"name":"Milton Keynes South West"},{"name":"Mitcham & Morden"},{"name":"Mole Valley"},{"name":"Monmouth"},{"name":"Montgomeryshire"},{"name":"Morecambe & Lunesdale"},{"name":"Morley & Rothwell"},{"name":"Neath"},{"name":"New Forest East"},{"name":"New Forest West"},{"name":"Newark"},{"name":"Newbury"},{"name":"Newcastle upon Tyne Central"},{"name":"Newcastle upon Tyne East & Wallsend"},{"name":"Newcastle upon Tyne North"},{"name":"Newcastle-under-Lyme"},{"name":"Newport East"},{"name":"Newport West"},{"name":"Newry & Armagh"},{"name":"Normanton"},{"name":"North Antrim"},{"name":"North Cornwall"},{"name":"North Devon"},{"name":"North Dorset"},{"name":"North Down"},{"name":"North Durham"},{"name":"North East Bedfordshire"},{"name":"North East Cambridgeshire"},{"name":"North East Derbyshire"},{"name":"North East Hampshire"},{"name":"North East Hertfordshire"},{"name":"North East Milton Keynes"},{"name":"North Essex"},{"name":"North Norfolk"},{"name":"North Shropshire"},{"name":"North Southwark & Bermondsey"},{"name":"North Swindon"},{"name":"North Thanet"},{"name":"North Tyneside"},{"name":"North Warwickshire"},{"name":"North West Cambridgeshire"},{"name":"North West Durham"},{"name":"North West Hampshire"},{"name":"North West Leicestershire"},{"name":"North West Norfolk"},{"name":"North Wiltshire"},{"name":"Northampton North"},{"name":"Northampton South"},{"name":"Northavon"},{"name":"Norwich North"},{"name":"Norwich South"},{"name":"Nottingham East"},{"name":"Nottingham North"},{"name":"Nottingham South"},{"name":"Nuneaton"},{"name":"Ogmore"},{"name":"Old Bexley & Sidcup"},{"name":"Oldham East & Saddleworth"},{"name":"Oldham West & Royton"},{"name":"Orkney & Shetland"},{"name":"Orpington"},{"name":"Oxford East"},{"name":"Oxford West & Abingdon"},{"name":"Pendle"},{"name":"Penrith & The Border"},{"name":"Peterborough"},{"name":"Plymouth, Devonport"},{"name":"Plymouth, Sutton"},{"name":"Pontefract & Castleford"},{"name":"Pontypridd"},{"name":"Poole"},{"name":"Poplar & Canning Town"},{"name":"Portsmouth North"},{"name":"Portsmouth South"},{"name":"Preseli Pembrokeshire"},{"name":"Preston"},{"name":"Pudsey"},{"name":"Putney"},{"name":"Rayleigh"},{"name":"Reading East"},{"name":"Reading West"},{"name":"Redcar"},{"name":"Redditch"},{"name":"Regent\'s Park & Kensington North"},{"name":"Reigate"},{"name":"Rhondda"},{"name":"Ribble Valley"},{"name":"Richmond (Yorks)"},{"name":"Richmond Park"},{"name":"Rochdale"},{"name":"Rochford & Southend East"},{"name":"Romford"},{"name":"Romsey"},{"name":"Rossendale & Darwen"},{"name":"Rother Valley"},{"name":"Rotherham"},{"name":"Rugby & Kenilworth"},{"name":"Ruislip - Northwood"},{"name":"Runnymede & Weybridge"},{"name":"Rushcliffe"},{"name":"Rutland & Melton"},{"name":"Ryedale"},{"name":"Saffron Walden"},{"name":"Salford"},{"name":"Salisbury"},{"name":"Scarborough & Whitby"},{"name":"Scunthorpe"},{"name":"Sedgefield"},{"name":"Selby"},{"name":"Sevenoaks"},{"name":"Sheffield Central"},{"name":"Sheffield, Attercliffe"},{"name":"Sheffield, Brightside"},{"name":"Sheffield, Hallam"},{"name":"Sheffield, Heeley"},{"name":"Sheffield, Hillsborough"},{"name":"Sherwood"},{"name":"Shipley"},{"name":"Shrewsbury & Atcham"},{"name":"Sittingbourne & Sheppey"},{"name":"Skipton & Ripon"},{"name":"Sleaford & North Hykeham"},{"name":"Slough"},{"name":"Solihull"},{"name":"Somerton & Frome"},{"name":"South Antrim"},{"name":"South Cambridgeshire"},{"name":"South Derbyshire"},{"name":"South Dorset"},{"name":"South Down"},{"name":"South East Cambridgeshire"},{"name":"South East Cornwall"},{"name":"South Holland & The Deepings"},{"name":"South Norfolk"},{"name":"South Ribble"},{"name":"South Shields"},{"name":"South Staffordshire"},{"name":"South Suffolk"},{"name":"South Swindon"},{"name":"South Thanet"},{"name":"South West Bedfordshire"},{"name":"South West Devon"},{"name":"South West Hertfordshire"},{"name":"South West Norfolk"},{"name":"South West Surrey"},{"name":"Southampton, Itchen"},{"name":"Southampton, Test"},{"name":"Southend West"},{"name":"Southport"},{"name":"Spelthorne"},{"name":"St Albans"},{"name":"St Helens North"},{"name":"St Helens South"},{"name":"St Ives"},{"name":"Stafford"},{"name":"Staffordshire Moorlands"},{"name":"Stalybridge & Hyde"},{"name":"Stevenage"},{"name":"Stockport"},{"name":"Stockton North"},{"name":"Stockton South"},{"name":"Stoke-on-Trent Central"},{"name":"Stoke-on-Trent North"},{"name":"Stoke-on-Trent South"},{"name":"Stone"},{"name":"Stourbridge"},{"name":"Strangford"},{"name":"Stratford-on-Avon"},{"name":"Streatham"},{"name":"Stretford & Urmston"},{"name":"Stroud"},{"name":"Suffolk Coastal"},{"name":"Sunderland North"},{"name":"Sunderland South"},{"name":"Surrey Heath"},{"name":"Sutton & Cheam"},{"name":"Sutton Coldfield"},{"name":"Swansea East"},{"name":"Swansea West"},{"name":"Tamworth"},{"name":"Tatton"},{"name":"Taunton"},{"name":"Teignbridge"},{"name":"Telford"},{"name":"Tewkesbury"},{"name":"Thurrock"},{"name":"Tiverton & Honiton"},{"name":"Tonbridge & Malling"},{"name":"Tooting"},{"name":"Torbay"},{"name":"Torfaen"},{"name":"Torridge & West Devon"},{"name":"Totnes"},{"name":"Tottenham"},{"name":"Truro & St Austell"},{"name":"Tunbridge Wells"},{"name":"Twickenham"},{"name":"Tyne Bridge"},{"name":"Tynemouth"},{"name":"Upminster"},{"name":"Upper Bann"},{"name":"Uxbridge"},{"name":"Vale of Clwyd"},{"name":"Vale of Glamorgan"},{"name":"Vale of York"},{"name":"Vauxhall"},{"name":"Wakefield"},{"name":"Wallasey"},{"name":"Walsall North"},{"name":"Walsall South"},{"name":"Walthamstow"},{"name":"Wansbeck"},{"name":"Wansdyke"},{"name":"Wantage"},{"name":"Warley"},{"name":"Warrington North"},{"name":"Warrington South"},{"name":"Warwick & Leamington"},{"name":"Watford"},{"name":"Waveney"},{"name":"Wealden"},{"name":"Weaver Vale"},{"name":"Wellingborough"},{"name":"Wells"},{"name":"Welwyn Hatfield"},{"name":"Wentworth"},{"name":"West Bromwich East"},{"name":"West Bromwich West"},{"name":"West Chelmsford"},{"name":"West Derbyshire"},{"name":"West Dorset"},{"name":"West Ham"},{"name":"West Lancashire"},{"name":"West Suffolk"},{"name":"West Tyrone"},{"name":"West Worcestershire"},{"name":"Westbury"},{"name":"Na h-Eileanan an Iar"},{"name":"Westmorland & Lonsdale"},{"name":"Weston-Super-Mare"},{"name":"Wigan"},{"name":"Wimbledon"},{"name":"Winchester"},{"name":"Windsor"},{"name":"Wirral South"},{"name":"Wirral West"},{"name":"Witney"},{"name":"Woking"},{"name":"Wokingham"},{"name":"Wolverhampton North East"},{"name":"Wolverhampton South East"},{"name":"Wolverhampton South West"},{"name":"Woodspring"},{"name":"Worcester"},{"name":"Workington"},{"name":"Worsley"},{"name":"Worthing West"},{"name":"Wrekin, The"},{"name":"Wrexham"},{"name":"Wycombe"},{"name":"Wyre Forest"},{"name":"Wythenshawe & Sale East"},{"name":"Yeovil"},{"name":"Ynys M\xf4n"},{"name":"York, City of"},{"name":"Aberdeen North"},{"name":"Aberdeen South"},{"name":"Aberdeenshire West & Kincardine"},{"name":"Airdrie & Shotts"},{"name":"Angus"},{"name":"Argyll & Bute"},{"name":"Ayr, Carrick & Cumnock"},{"name":"Ayrshire Central"},{"name":"Ayrshire North & Arran"},{"name":"Banff & Buchan"},{"name":"Berwickshire, Roxburgh & Selkirk"},{"name":"Caithness, Sutherland & Easter Ross"},{"name":"Coatbridge, Chryston & Bellshill"},{"name":"Cumbernauld, Kilsyth & Kirkintilloch East"},{"name":"Dumfries & Galloway"},{"name":"Dumfriesshire, Clydesdale & Tweeddale"},{"name":"East Dunbartonshire"},{"name":"West Dunbartonshire"},{"name":"Dundee East"},{"name":"Dundee West"},{"name":"Dunfermline & Fife West"},{"name":"East Kilbride, Strathaven & Lesmahagow"},{"name":"East Lothian"},{"name":"Edinburgh East"},{"name":"Edinburgh North & Leith"},{"name":"Edinburgh South"},{"name":"Edinburgh South West"},{"name":"Edinburgh West"},{"name":"Falkirk"},{"name":"Fife North East"},{"name":"Glasgow Central"},{"name":"Glasgow East"},{"name":"Glasgow North"},{"name":"Glasgow North East"},{"name":"Glasgow North West"},{"name":"Glasgow South"},{"name":"Glasgow South West"},{"name":"Glenrothes"},{"name":"Gordon"},{"name":"Inverclyde"},{"name":"Inverness, Nairn, Badenoch & Strathspey"},{"name":"Kilmarnock & Loudoun"},{"name":"Kirkcaldy & Cowdenbeath"},{"name":"Lanark & Hamilton East"},{"name":"Linlithgow & Falkirk East"},{"name":"Livingston"},{"name":"Midlothian"},{"name":"Moray"},{"name":"Motherwell & Wishaw"},{"name":"Ochil & Perthshire South"},{"name":"Paisley & Renfrewshire North"},{"name":"Paisley & Renfrewshire South"},{"name":"Perth & Perthshire North"},{"name":"Ross, Skye & Lochaber"},{"name":"Rutherglen & Hamilton West"},{"name":"Stirling"}]'
+p47
+tp48
+.
